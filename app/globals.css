@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@200&display=swap");
+body {
+  font-family: 'Catamaran', sans-serif !important;
+  
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swiper-pagination span {
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active span {
+  width: 100px;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .MuiTabs-flexContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+
+  transform: rotate(45deg);
+}
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: -24px;
+  animation: animloader 4s ease infinite;
+  
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: #a4a3a3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  animation: animloader2 2s ease infinite;
+  
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 0 24px #ede9e9, 24px 24px #080808, 24px 48px #080808, 0px 48px #080808;
+    
+  }
+  12% {
+    box-shadow: 0 24px #ffffff, 24px 24px #080808, 24px 48px #080808, 0px 48px #080808;
+  }
+  25% {
+    box-shadow: 0 24px #ede9e9, 24px 24px #ede9e9, 24px 48px #080808, 0px 48px #080808;
+  }
+  37% {
+    box-shadow: 0 24px #ede9e9, 24px 24px #ede9e9, 24px 48px #ede9e9, 0px 48px #080808;
+  }
+  50% {
+    box-shadow: 0 24px #ede9e9, 24px 24px #ede9e9, 24px 48px #ede9e9, 0px 48px #ede9e9;
+  }
+  62% {
+    box-shadow: 0 24px #080808, 24px 24px #ede9e9, 24px 48px #ede9e9, 0px 48px #ede9e9;
+  }
+  75% {
+    box-shadow: 0 24px #080808, 24px 24px #080808, 24px 48px #ede9e9, 0px 48px #ede9e9;
+  }
+  87% {
+    box-shadow: 0 24px #080808, 24px 24px #080808, 24px 48px #080808, 0px 48px #ede9e9;
+  }
+  100% {
+    box-shadow: 0 24px #080808, 24px 24px #080808, 24px 48px #080808, 0px 48px #080808;
+  }
+}
+
+@keyframes animloader2 {
+  0% {
+    transform: translate(0, 0) rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+  }
+  50% {
+    transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+  }
+  75% {
+    transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+  }
+  100% {
+    transform: translate(0, 0) rotateX(0) rotateY(360deg);
+  }
+}
+    
+/*# sourceMappingURL=App.css.map */
