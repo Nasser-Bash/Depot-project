@@ -21,7 +21,7 @@ async function MasonryHome() {
       return data
     } catch (error) {
       console.error('Error fetching data 1:', error);
-      return null;
+      return [];
     }
   };
   const products = await GetProducts()

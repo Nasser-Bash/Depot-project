@@ -22,7 +22,7 @@ async function WithFilter() {
       return data
     } catch (error) {
       console.error('Error fetching data 1:', error);
-      return null;
+      return [];
     }
   };
   const GetCategories = async () => {
