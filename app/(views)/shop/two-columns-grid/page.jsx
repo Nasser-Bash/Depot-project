@@ -28,7 +28,7 @@ async function TwoColumnsGrid() {
         <HeroSection/>
         <div className="grid md:grid-cols-2 p-5 gap-5 ">
         {
-          products.map((product)=>{
+         products && products.map((product)=>{
                return(
                 <ProductCard
                 key={product.id}

@@ -36,7 +36,7 @@ async function MinimalHome() {
         <div className="md:grid grid-cols-3  gap-5 p-5">
 
                  {
-        products.map((product,index)=>{
+       products && products.map((product,index)=>{
           if(index===0){
             return(
             <div className="col-span-2 ">

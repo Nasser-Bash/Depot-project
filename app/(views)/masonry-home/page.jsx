@@ -36,7 +36,7 @@ async function MasonryHome() {
     </p>
     <div className="md:grid grid-cols-3 ">
       {
-       products.map((product,index)=>{
+      products && products.map((product,index)=>{
           if(index===0){
             return(
             <div className="col-span-2 ">

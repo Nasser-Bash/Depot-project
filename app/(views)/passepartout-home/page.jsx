@@ -29,7 +29,7 @@ async function PassepartoutHome(props) {
         <div className="md:grid grid-cols-4  gap-5 p-5">
         <div className="col-span-2 grid grid-cols-2 grid-flow-row gap-5">
         {
-       products.map((product,index)=>{
+      products && products.map((product,index)=>{
           if(index<=3){
             return(
            

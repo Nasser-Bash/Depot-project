@@ -29,7 +29,7 @@ async function FourColumnsGrid() {
         <HeroSection/>
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 p-5 gap-5  ">
         {
-            products.map((product)=>{
+           products && products.map((product)=>{
                return(
                 <ProductCard
                 key={product.id}

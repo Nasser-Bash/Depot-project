@@ -30,7 +30,9 @@ async function  Shop() {
     <>
     <HeroSection/>
         <MainContainer>
-                <Products products={products} />
+          {
+            products && (<Products products={products} />)          }
+                
         </MainContainer>
     </>
     

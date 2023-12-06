@@ -45,6 +45,9 @@ async function Product(props) {
 
   return (
     <MainContainer>
+      {
+        product && (
+      
       <div className="lg:grid grid-cols-2 md:p-10 p-5  gap-5">
 
         <Gallery product={product}/>
@@ -78,6 +81,9 @@ async function Product(props) {
             <AddToWishlist product={product}/>
         </div>
       </div>
+          
+          )
+        }
       <AddInfo productId={props.params.productId} />
       {/*
       

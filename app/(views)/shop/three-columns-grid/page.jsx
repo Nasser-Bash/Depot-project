@@ -29,7 +29,7 @@ async function ThreeColumnsGrid() {
         <HeroSection/>
         <div className="grid md:grid-cols-3 sm:grid-cols-2 p-8 gap-5  ">
         {
-            products.map((product)=>{
+           products && products.map((product)=>{
                return(
                 <ProductCard
                 key={product.id}
