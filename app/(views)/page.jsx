@@ -1,13 +1,7 @@
-
-
 import baseUrl from "@/public/BaseUrl";
 import MainContainer from "../components/layout/mainContainer";
 import HeroSection from "../components/sections/home/heroSection";
 import ProductCard from "../components/widgets/productCard";
-
-
-
-
 export default async function Home() {
   const GetProducts = async () => {
     try {
