@@ -1,7 +1,27 @@
+import baseUrl from "@/public/BaseUrl";
 import ProductCard from "../../widgets/productCard"
 
 
-function RelatedProducts({products}) {
+async function RelatedProducts() {
+  const GetProducts = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/api/products`, {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`
+        },
+        next: {
+          revalidate: 60
+        }
+      });
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  };
+  const products = await GetProducts()
   return (
     <div className="mt-10 p-5">
             <h4 className="ms-10 text-gray-400 text-sm font-bold">RELATED PRODUCTS</h4>

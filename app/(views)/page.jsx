@@ -9,25 +9,26 @@ import ProductCard from "../components/widgets/productCard";
 
 
 export default async function Home() {
-   const GetProducts = async () => {
+  const GetProducts = async () => {
     try {
-        const response = await fetch(`${baseUrl}/api/products`,
-        {
-            next : {
-                revalidate : 60
-            }
+      const response = await fetch(`${baseUrl}/api/products`, {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`
+        },
+        next: {
+          revalidate: 60
         }
-      )
+      });
+  
       const data = await response.json();
-      
-      return data
+      return data;
     } catch (error) {
-      console.error('Error fetching data 1:', error);
-      return [];
+      console.error('Error fetching data:', error);
+      return null;
     }
   };
   const products = await GetProducts()
- 
+
   return (
     <>
       <HeroSection />
@@ -37,7 +38,7 @@ export default async function Home() {
         
               <div className="sm:grid lg:grid-cols-4 mt-10  md:grid-cols-3  sm:grid-cols-2  gap-8">
               {
-              products && products.map((product)=>{
+               products.map((product)=>{
                  return(
                      <ProductCard 
                       key={product.id}
