@@ -5,53 +5,46 @@ import ProductCard from "../components/widgets/productCard";
 export default async function Home() {
   const GetProducts = async () => {
     try {
-      const response = await fetch(`${baseUrl}/api/products`, {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`
-        },
-        next: {
-          revalidate: 60
+      const response = await fetch(
+        `https://depot-project.vercel.app/api/products`,
+        {
+          next: {
+            revalidate: 60,
+          },
         }
-      });
-  
+      );
+
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
       return null;
     }
   };
-  const products = await GetProducts()
+  const products = await GetProducts();
 
   return (
     <>
       <HeroSection />
       <MainContainer>
         <main>
-          
-        
-              <div className="sm:grid lg:grid-cols-4 mt-10  md:grid-cols-3  sm:grid-cols-2  gap-8">
-              {
-               products.map((product)=>{
-                 return(
-                     <ProductCard 
-                      key={product.id}
-                      id={product.id}
-                      name={product.name}
-                      price={product.price}
-                      mainImage={product.mainImage}
-                      description={product.description}
-                      galleryimages={product.galleryimages}
-                      />
-                 )
-               })
-              }
-           </div>
-          
-         
+          <div className="sm:grid lg:grid-cols-4 mt-10  md:grid-cols-3  sm:grid-cols-2  gap-8">
+            {products.map((product) => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  price={product.price}
+                  mainImage={product.mainImage}
+                  description={product.description}
+                  galleryimages={product.galleryimages}
+                />
+              );
+            })}
+          </div>
         </main>
       </MainContainer>
     </>
   );
 }
-

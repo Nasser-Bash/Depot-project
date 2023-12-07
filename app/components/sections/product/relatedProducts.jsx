@@ -1,14 +1,11 @@
-import baseUrl from "@/public/BaseUrl";
+
 import ProductCard from "../../widgets/productCard"
 
 
 async function RelatedProducts() {
   const GetProducts = async () => {
     try {
-      const response = await fetch(`${baseUrl}/api/products`, {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`
-        },
+      const response = await fetch(`https://depot-project.vercel.app/api/products`,{ 
         next: {
           revalidate: 60
         }
