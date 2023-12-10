@@ -1,0 +1,10 @@
+
+@media only screen and (max-width: 558px) {
+    .MuiTabs-flexContainer {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+  } 
+  

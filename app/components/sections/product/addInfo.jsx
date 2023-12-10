@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Fade, Zoom } from "react-reveal";
 import { useRef } from "react";
-
+import '../../../custom.css'  
 function AddInfo({ productId }) {
   const formRef = useRef(null);
   const [value, setValue] = useState("1");

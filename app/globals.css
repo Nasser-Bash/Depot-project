@@ -52,15 +52,6 @@ body {
   opacity: 1;
 }
 
-/* @media only screen and (max-width: 768px) {
-  .MuiTabs-flexContainer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-} */
-
 
 .loader {
   width: 48px;

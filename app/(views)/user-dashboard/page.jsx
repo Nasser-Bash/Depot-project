@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import HeroSection from "../../components/sections/cart/heroSection";
 import MainContainer from "../../components/layout/mainContainer";
 import { createTheme } from "@material-ui/core/styles";
+import '../../custom.css'
 function UserDashboard() {
   const [ratevalue, setratevalue] = useState(2);
   const [value, setValue] = useState("1");
@@ -26,19 +27,20 @@ function UserDashboard() {
           className="my-20 md:p-10 p-5 mx-auto lg:w-3/4 w-full"
           sx={{ typography: "body1" }}
         >
-          <TabContext value={value}>
-            <Box>
+          <TabContext value={value} >
+            <Box className=''>
               <TabList
                 className=""
                 TabIndicatorProps={{ style: { display: "none" } }}
                 onChange={handleChange}
                 aria-label="lab API tabs example"
                 centered
+             
               >
                 <Tab
                   label="Login"
                   value="1"
-                  className={`md:w-1/3 text-[16px] uppercase  transition duration-150 `}
+                  className={`md:w-1/3 text-[15px] uppercase text-gray-500 transition duration-150 `}
                   sx={{
                     color: "gray.500",
                     "&.Mui-selected": {
@@ -48,7 +50,7 @@ function UserDashboard() {
                   }}
                 />
                 <Tab
-                  className={`md:w-1/3 text-[16px] uppercase  transition duration-150 `}
+                  className={`md:w-1/3 text-[15px] uppercase text-gray-500 transition duration-150 `}
                   label="REGISTER"
                   value="2"
                   sx={{
@@ -60,7 +62,7 @@ function UserDashboard() {
                   }}
                 />
                 <Tab
-                  className={`md:w-1/3 w-full text-[16px] uppercase  transition duration-150 `}
+                className={`md:w-1/3 text-[15px] uppercase text-gray-500 transition duration-150 `}
                   label="RESET PASSWORD "
                   value="3"
                   sx={{
