@@ -16,7 +16,7 @@ function Gallery({product}) {
     const navigationNextRef = useRef(null);
   return (
     <div className="product-images  md:grid grid-cols-5 gap-3   ">
-    <div className=" h-[550px] relative group">
+    <div className="md:h-[550px] h-[400px] relative group">
       <span className="opacity-0  p-2 absolute top-[5px] left-0  w-full z-50 text-center group-hover:bg-[#05050569] transition duration-300 cursor-pointer text-3xl  font-thin group-hover:opacity-100">
         <FontAwesomeIcon
           className="text-white "

@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart , faCheck} from "@fortawesome/free-solid-svg-icons";
 
@@ -7,14 +7,15 @@ import Link from 'next/link';
 
 import { Fade } from 'react-reveal';
 import QuickView from './quickView';
-import useCart from '@/app/hooks/useCart';
+
 import useWishlist from '@/app/hooks/useWishlist';
+import { CartContext } from '@/app/context/cartContext';
 function ProductCard(props) {
   const { id,name, price, mainImage , description , galleryimages } = props;
     const [activeQuickView, setactiveQuickView] = useState(false);
     const [IsAddToWishlist, setIsaddToWishlist] = useState(false);
     const [isAddedToCart, setisAddedToCart] = useState(false);
-    const [cartItems, addToCart  ] = useCart();
+    const { cartItems, addToCart, removeFromCart, changeProductQuantity } = useContext(CartContext);
     const [wishlistItems,addToWishlist] = useWishlist();
     
     const handleClickWishlist = (product)=>{
@@ -50,6 +51,8 @@ function ProductCard(props) {
   useEffect(() => {
     existProduct()
   }, [wishlistItems,cartItems]);
+
+  
   return (
     
     
@@ -90,6 +93,7 @@ function ProductCard(props) {
           <QuickView
            handleClick={handleClick} 
            activeQuickView={activeQuickView}
+           id={id}
            name={name}
            price={price}
            mainImage={mainImage}

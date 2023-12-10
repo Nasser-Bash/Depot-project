@@ -14,7 +14,7 @@ function products({ products, categories }) {
         setallProducts={setallProducts}
       />
       {allProducts.length > 0 ? (
-        <div className="sm:grid lg:grid-cols-4 mt-10  md:grid-cols-3  sm:grid-cols-2  gap-8">
+        <div className="sm:grid lg:grid-cols-4 mt-10  md:grid-cols-3 p-5 sm:grid-cols-2  gap-8">
           {allProducts.map((product) => {
             return (
               <ProductCard

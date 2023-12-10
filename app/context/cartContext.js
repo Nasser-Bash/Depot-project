@@ -1,34 +1,29 @@
-import { useState, useEffect } from 'react';
+'use client'
+import React, { createContext, useState, useEffect } from 'react';
 
-const useCart = () => {
+export const CartContext = createContext();
+
+export const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-    setCartItems(cart);   
-      
+    setCartItems(cart);
   }, []);
- 
-
 
   const addToCart = (product, quantity = 1) => {
-    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const existingProduct = cart.find((item) => item.id === product.id);
-  
+    const existingProduct = cartItems.find((item) => item.id === product.id);
+
     if (existingProduct) {
-      const updatedCartItems = cart.map((item) =>
+      const updatedCartItems = cartItems.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
       );
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
       setCartItems(updatedCartItems);
-      
-
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     } else {
-      const updatedCartItems = [...cart, { ...product, quantity }];
+      const updatedCartItems = [...cartItems, { ...product, quantity }];
       setCartItems(updatedCartItems);
       localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-     
     }
   };
 
@@ -36,7 +31,7 @@ const useCart = () => {
     const updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-  }; 
+  };
 
   const changeProductQuantity = (productId, newQuantity) => {
     const updatedCartItems = cartItems.map((item) =>
@@ -46,7 +41,12 @@ const useCart = () => {
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
-  return [cartItems, addToCart , removeFromCart , changeProductQuantity ];
-};
+  const contextValue = {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    changeProductQuantity,
+  };
 
-export default useCart;
+  return <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
+};

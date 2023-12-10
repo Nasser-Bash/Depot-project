@@ -27,7 +27,7 @@ async function PassepartoutHome(props) {
       <HeroSection />
       <MainContainer>
         <div className="md:grid grid-cols-4  gap-5 p-5">
-          <div className="col-span-2 grid grid-cols-2 grid-flow-row gap-5">
+          <div className="col-span-2 md:grid grid-cols-2 grid-flow-row gap-6  ">
             {products.map((product, index) => {
               if (index <= 3) {
                 return (
@@ -89,7 +89,7 @@ async function PassepartoutHome(props) {
               }
             })}
           </div>
-          <div className="col-span-2 grid grid-cols-2 grid-flow-row gap-5">
+          <div className="col-span-2 md:grid grid-cols-2 grid-flow-row gap-5">
             {products.map((product, index) => {
               if (index >= 10 && index <= 13) {
                 return (

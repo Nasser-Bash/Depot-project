@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Addresses() {
   return (
-    <div className="grid md:grid-cols-3 grid-cols-1 gap-5 my-8  p-7 ">
+    <div className="grid md:grid-cols-3 grid-cols-1 gap-5 my-8  p-7  text-center">
             <div className="flex gap-5 ">
                       <FontAwesomeIcon className="text-2xl my-1" icon={faCheckCircle}/>
                         <span>

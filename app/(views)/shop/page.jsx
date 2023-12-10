@@ -1,7 +1,7 @@
 import HeroSection from "../../components/sections/shop/heroSection";
 import MainContainer from "../../components/layout/mainContainer";
 import Products from "../../components/sections/shop/products";
-import Sidebar from "../../components/layout/sidebar";
+
 
 async function Shop() {
   const GetProducts = async () => {

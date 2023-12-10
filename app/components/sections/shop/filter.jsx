@@ -1,7 +1,7 @@
 "use client";
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import { useState } from "react";
 function Filter({ products, categories, setallProducts }) {
   const [value, setValue] = useState(0);
@@ -20,17 +20,17 @@ function Filter({ products, categories, setallProducts }) {
     }
   };
   return (
-    <div className="filter mt-10  md:flex justify-between  px-5 gap-10">
-      <Box>
+    <div className="filter mt-10   px-5 ">
+      <Box sx={{ maxWidth: { xs: 450, sm: 780 } }}>
         <Tabs
           TabIndicatorProps={{ style: { backgroundColor: "black" } }}
           value={value}
           className=""
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons
+          scrollButtons="auto"
           allowScrollButtonsMobile
-          sx={{ maxWidth: { xs: 450, sm: 780 } }}
+          
         >
           <Tab
             className={`text-gray-500 ${
@@ -52,6 +52,7 @@ function Filter({ products, categories, setallProducts }) {
           })}
         </Tabs>
       </Box>
+        
     </div>
   );
 }

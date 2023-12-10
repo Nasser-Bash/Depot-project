@@ -3,7 +3,7 @@
 import HeroSection from "@/app/components/sections/shop/heroSection";
 import Products from "@/app/components/sections/home/products";
 import MainContainer from "@/app/components/layout/mainContainer";
-import Filter from "@/app/components/sections/shop/filter";
+
 
 async function WithFilter() {
 

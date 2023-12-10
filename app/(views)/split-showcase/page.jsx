@@ -56,7 +56,7 @@ function SplitShowcase() {
        
     </SwiperSlide>
     <SwiperSlide >
-        <div className='md:grid grid-cols-2 overflow-hidden'>
+        <div className='md:grid grid-cols-2 overflow-hidden  h-full '>
         
          <div className={`text-black md:py-0 py-16  flex flex-col justify-center items-center ${previousSlide===1 ? 'translate-y-[-100%] transition duration-1000' : ''}`}>
             <h4 className='text-4xl font-bold mb-5'>ELEGANT STYLE</h4>
@@ -67,10 +67,10 @@ function SplitShowcase() {
        
     </SwiperSlide>
     <SwiperSlide >
-        <div className='md:grid grid-cols-2  md:py-0 py-16  overflow-hidden'>
+        <div className='md:grid grid-cols-2  md:py-0 py-16  overflow-hidden  h-full '>
         
-         <div className={`text-black flex flex-col justify-center items-center  ${previousSlide===2 ? 'translate-y-[100%] transition duration-1000' : ''}`}>
-            <h4 className='text-4xl font-bold mb-5'>BEAUTIFUL DESIGN</h4>
+         <div className={`text-black flex flex-col justify-center items-center mb-8  ${previousSlide===2 ? 'translate-y-[100%] transition duration-1000' : ''}`}>
+            <h4 className='text-4xl font-bold mb-8'>BEAUTIFUL DESIGN</h4>
             <p className='font-medium'>SUPERIOR SERVICE</p>
          </div>
          <img className={`h-full w-full object-cover  ${previousSlide===2 ? 'translate-y-[-100%] transition duration-1000' : ''} `} src='/images/h13-slide3-img.jpg'/>

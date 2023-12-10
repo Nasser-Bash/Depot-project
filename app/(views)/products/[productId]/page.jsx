@@ -12,18 +12,15 @@ import Link from "next/link";
 
 import MainContainer from "@/app/components/layout/mainContainer";
  import AddInfo from "@/app/components/sections/product/addInfo";
-
 import Gallery from "@/app/components/sections/product/gallery";
 import AddToCart from "@/app/components/sections/product/addToCart";
 import AddToWishlist from "@/app/components/sections/product/addToWishlist";
 import RelatedProducts from "@/app/components/sections/product/relatedProducts";
 async function Product(props) {
-  const GetProducts = async () => {
+  const GetProduct = async () => {
     try {
       const response = await fetch(`https://depot-project.vercel.app/api/product/${props.params.productId}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`
-        },
+       
         next: {
           revalidate: 60
         }
@@ -37,7 +34,7 @@ async function Product(props) {
     }
   };
 
-  const product = await GetProducts()
+  const product = await GetProduct()
 
  
 
@@ -50,11 +47,11 @@ async function Product(props) {
         <Gallery product={product}/>
         <div className="product-info    p-8 ">
           <h4 className="text-black text-3xl uppercase mb-3">
-            {" "}
-            {product.name}{" "}
+            
+            {product.name}
           </h4>
           <p className="text-gray-500 text-xl mb-16">
-            $ {product.price}{" "}
+            $ {product.price}
           </p> 
           <span className="text-amber-300 ">
             <FontAwesomeIcon icon={faStar} />
@@ -68,10 +65,10 @@ async function Product(props) {
           </p> 
            
            <AddToCart product={product}/>
-         <span className="flex gap-2 mt-8">
+         <span className="md:flex gap-2 mt-10  text-start">
             <h4 className="font-bold">Categories :</h4>
             {product.categories.map((category) => {
-              return <p className="text-sm my-auto">{category.name} ,</p>;
+              return <p className="text-sm ">{category.name} ,</p>;
             })}
           </span> 
 

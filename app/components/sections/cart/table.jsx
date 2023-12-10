@@ -1,15 +1,14 @@
 'use client'
-import { useState , useEffect } from "react";
+import { useState , useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
-
 import Link from "next/link";
-import useCart from "@/app/hooks/useCart";
+
 import MainContainer from "../../layout/mainContainer";
+import { CartContext } from "@/app/context/cartContext";
 function CartTable() {
   
-    const [cartItems, , removeFromCart , changeProductQuantity] = useCart();
+    const { cartItems, addToCart, removeFromCart, changeProductQuantity } = useContext(CartContext);
     const handleRemoveFromCart = (productId) => {
         removeFromCart(productId);
       };
@@ -28,7 +27,7 @@ function CartTable() {
       
         setsubTotal(sub);
         setTotal(sub + 100);
-        console.log('update');
+       
       }, [cartItems]);
   return (
     <MainContainer>
@@ -36,10 +35,13 @@ function CartTable() {
              cartItems.length>0 ?
        
         <div className='lg:grid grid-cols-3 my-48 gap-20  p-10 '>
-                
-                <div className=" overflow-x-auto col-span-2 mb-8 ">
-                    <h4 className='text-black text-2xl mb-8 ms-3 '>SHOPPING CART</h4>
-                    <table className="w-full text-sm text-left text-black relative table-auto	">
+                 
+                <div className="  col-span-2 mb-8 ">
+                <h4 className='text-black text-2xl mb-8 md:ms-3 '>SHOPPING CART</h4>
+                <div className="overflow-x-auto">
+
+            
+                    <table className=" w-full text-sm text-left text-black relative table-auto	">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50  text-black">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
@@ -88,6 +90,7 @@ function CartTable() {
                                         <input
                             type="number"
                             defaultValue={item.quantity}
+                            min={1}
                             onChange={(e)=>handleChange(item.id,e)}
                             className="  border bg-transparent py-2 px-3 h-full leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-black data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 border border-gray-600"
                             id="exampleFormControlInputNumber"
@@ -104,6 +107,7 @@ function CartTable() {
                 
                         </tbody>
                     </table>
+                    </div>
                 </div>
                   <div className='info w-full '>
                 <div className='border-b border-gray-400 pb-10 '>

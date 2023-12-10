@@ -15,9 +15,12 @@ function Table() {
       
               {  
                     wishlistItems.length > 0 ? (
-                  
-                <div className="relative overflow-x-auto  p-20 ">
-                    <h4 className='text-black text-4xl mb-8 ms-3 font-medium'>Wishlist</h4>
+                 
+                      <div>
+                        <h4 className='text-black text-4xl my-8 ms-3 font-medium'>Wishlist</h4>
+                 
+                <div className="relative overflow-x-auto   ">
+                    
                     <table className="w-full text-sm text-left text-black ">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50  text-black">
                             <tr>
@@ -63,7 +66,8 @@ function Table() {
                             
                         </tbody>
                     </table>
-                </div> ) :(
+                </div> 
+                </div>) :(
             <div className="text-center">
            
                                     <h4 className="my-10 text-black font-bold text-3xl text-center">OOOOppsss !!!!!! Your WishList is empty </h4>

@@ -29,7 +29,7 @@ function Products({products}) {
   return (
 
     <>
-        <div className="mt-8 md:grid grid-cols-4 gap-3 ">
+        <div className="mt-8 md:grid grid-cols-4 gap-3 p-7 ">
           <div className="col-span-1">
 
           </div>
@@ -55,18 +55,65 @@ function Products({products}) {
           }}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="default"  className={`text-sm hover:bg-black hover:text-white transition duration-300 ${
-            sort === "default" ? '!bg-black !text-white' : '' // add your custom class for the selected item
-          }`}  >
+          <MenuItem value="default"  className={`text-sm  transition duration-300`}  
+          sx={{
+              color:'black !important',
+            '&:hover': {
+              backgroundColor: 'black',
+              color:'white !important'
+            },
+            '&.Mui-selected': {
+              borderColor: "red",
+             color: 'white !important', 
+             backgroundColor:'black !important',
+             '&:hover': {
+              backgroundColor: 'gray',
+            },
+            }
+           
+          }}
+          >
             <em>Default Sorting</em>
           </MenuItem>
         
-          <MenuItem className={`text-sm hover:bg-black hover:text-white transition duration-300 ${
-            sort === 'asce' ? '!bg-black text-white' : '' // add your custom class for the selected item
-          }`} value='asce'>Sort by price low to hight</MenuItem>
-          <MenuItem className={`text-sm hover:bg-black hover:text-white transition duration-300 ${
-            sort === 'desc' ? '!bg-black text-white' : '' // add your custom class for the selected item
-          }`} value='desc'>Sort by price hight to low</MenuItem>
+          <MenuItem className={`text-sm  transition duration-300 `} value='asce'
+           sx={{
+            
+            color: 'black !important', 
+            '&:hover': {
+              backgroundColor: 'black',
+              color:'white !important'
+            },
+            '&.Mui-selected': {
+              borderColor: "red",
+             color: 'white !important', 
+             backgroundColor:'black',
+             '&:hover': {
+              backgroundColor: 'gray',
+            },
+            }
+           
+          }}
+          >Sort by price low to hight</MenuItem>
+          <MenuItem className={`text-sm  transition duration-300 `} value='desc'
+            sx={{
+            
+              color: 'black !important', 
+              '&:hover': {
+                backgroundColor: 'black',
+                color:'white !important'
+              },
+              '&.Mui-selected': {
+                borderColor: "red",
+               color: 'white !important', 
+               backgroundColor:'black',
+               '&:hover': {
+                backgroundColor: 'gray',
+              },
+              }
+             
+            }}
+          >Sort by price hight to low</MenuItem>
         </Select>
         
       </FormControl>

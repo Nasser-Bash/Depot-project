@@ -24,7 +24,7 @@ function AddInfo({ productId }) {
         `https://depot-project.vercel.app/api/product/review/${productId}`
       );
       const data = await response.json();
-
+      
       setAllreviews(data);
     } catch (error) {
       console.error("Error fetching data 1:", error);
@@ -34,7 +34,8 @@ function AddInfo({ productId }) {
 
   useEffect(() => {
     GetProductReview();
-  }, [Allreviews]);
+   
+  }, []);
 
   const [review, setreview] = useState({
     comment: "",
@@ -51,13 +52,14 @@ function AddInfo({ productId }) {
   };
 
   //post review to api
-  const handleReview = () => {
-    axios
+  const handleReview = async () => {
+    await axios
       .post(
         `https://depot-project.vercel.app/api/product/review/${productId}`,
         review
       )
-      .then((response) => {});
+      .then((response) => {console.log(response);});
+      await GetProductReview();
   };
 
   const handleClick = (e) => {

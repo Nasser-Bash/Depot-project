@@ -47,12 +47,15 @@ function MainHeader() {
                       <div className="  p-10  text-gray-400 ">
                         <ul
                           className="space-y-2   overflow-hidden "
-                          aria-labelledby="mega-menu-icons-dropdown-button"
+                          aria-labelledby="mega-menu-icons-dropdown-button "
                         >
                           {link.sublinks.map((sublink) => {
                             return (
                               <li
                                 className="group-two
+                                xl:text-sm
+                                text-[10px]
+                              
                               "
                               >
                                 <Link
@@ -107,6 +110,8 @@ function MainHeader() {
                                 return (
                                   <li
                                     className="group-two
+                                    xl:text-sm
+                                    text-[10px]
                         "
                                   >
                                     <Link
