@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 export default async function dbConnect  (){
         try {
-            await mongoose.connect('mongodb+srv://nasserbash16:123456Rr@cluster0.nybimxd.mongodb.net/depot',
+            await mongoose.connect(process.env.MONGODB_URL,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
