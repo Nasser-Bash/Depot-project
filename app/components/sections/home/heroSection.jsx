@@ -14,7 +14,14 @@ function HeroSection() {
     setActiveSlideIndex(swiper.realIndex);
    
   };
-
+  const renderCustomBullet = (index, className) => {
+    return (`
+      <button key=${index} class="${className} gap-1 flex group text-[20px]">
+        0${index + 1}
+        <span class="w-[60px] bg-black opacity-70 my-auto h-[1px]"></span>
+      </button>
+    `);
+  };
   return (
     <Swiper
     
@@ -31,16 +38,7 @@ function HeroSection() {
    
     pagination={{
       clickable: true,
-      renderBullet: (index, className) => {
-        
-        return (` 
-        <button key=${index} class="${className} gap-1 flex group  text-[20px]">
-       0${index + 1}
-       <span class="w-[60px] bg-black opacity-70  my-auto h-[1px] 	 "></span>
-      </button>
-       
-     `);
-      },
+      renderBullet: renderCustomBullet,
     }}
     modules={[ Autoplay ,Pagination ]}
 

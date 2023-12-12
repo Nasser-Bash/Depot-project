@@ -21,7 +21,7 @@ export default async function Home() {
     }
   };
   const products = await GetProducts();
-
+ 
   return (
     <>
       <HeroSection />
@@ -31,8 +31,8 @@ export default async function Home() {
             {products.map((product) => {
               return (
                 <ProductCard
-                  key={product.id}
-                  id={product.id}
+                  key={product._id}
+                  id={product._id}
                   name={product.name}
                   price={product.price}
                   mainImage={product.mainImage}

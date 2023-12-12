@@ -1,13 +1,20 @@
-import { products } from "@/public/products";
+import Product from "@/models/Product";
+import dbConnect from "../../../utils/dbConnect";
 
 
-export default function Productsdetail(req, res) {
-  if (req.method === 'GET') {
-    const { productId } = req.query;
- 
-    const product = products.find((item) => item.id === parseInt(productId));
-    res.status(200).json(product)
-  } else {
-    res.status(405).json({ message: 'Method Not Allowed' });
+export default async function Productsdetail(req, res) {
+  const { productId } = req.query;
+  try{
+    
+      await dbConnect()
+      const product = await Product.findOne({ _id: productId })
+      if (req.method === 'GET') {
+        res.status(200).json(product)
+      } else {
+        res.status(405).json({ message: 'Method Not Allowed' });
+      }
+  }catch(error){
+    console.log(error);
   }
+  
 }

@@ -38,6 +38,7 @@ function AddInfo({ productId }) {
   }, []);
 
   const [review, setreview] = useState({
+    productId:productId,
     comment: "",
     email: "",
     name: "",
@@ -60,6 +61,7 @@ function AddInfo({ productId }) {
       )
       .then((response) => {console.log(response);});
       await GetProductReview();
+    
   };
 
   const handleClick = (e) => {

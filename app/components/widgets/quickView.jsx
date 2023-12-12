@@ -23,7 +23,6 @@ function QuickView(props) {
   
     const handleChange = (e)=>{
       setquantity(parseInt(e.target.value))
-    
       }
   return (
     <div className={`fixed top-0 bottom-0 left-0 right-0 bg-[#0707079e] w-screen h-screen z-[450] transition duration-500  p-5 ${activeQuickView === true ? "opacity-100 visible " : "opacity-0 invisible"}`}>
@@ -106,7 +105,7 @@ function QuickView(props) {
                     </span>
                     
             </div>  
-    </div>
+        </div>
 
     </div>
   )
