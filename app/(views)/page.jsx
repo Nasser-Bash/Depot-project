@@ -3,7 +3,11 @@ import MainContainer from "../components/layout/mainContainer";
 import HeroSection from "../components/sections/home/heroSection";
 import ProductCard from "../components/widgets/productCard";
 export default async function Home() {
-    await  dbConnect();
+    try {
+      await  dbConnect();
+    }catch(error){
+      console.log(error);
+    }
   // const GetProducts = async () => {
   //   try {
   //     const response = await fetch(
