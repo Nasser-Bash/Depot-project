@@ -1,7 +1,9 @@
+import dbConnect from "@/utils/dbConnect";
 import MainContainer from "../components/layout/mainContainer";
 import HeroSection from "../components/sections/home/heroSection";
 import ProductCard from "../components/widgets/productCard";
 export default async function Home() {
+    await  dbConnect();
   // const GetProducts = async () => {
   //   try {
   //     const response = await fetch(
@@ -23,6 +25,7 @@ export default async function Home() {
   // const products = await GetProducts();
  
   return (
+     
     <>
       <HeroSection />
       <MainContainer>
