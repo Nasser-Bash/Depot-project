@@ -5,6 +5,7 @@ export default async function dbConnect  (){
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
+                connectTimeoutMS: 30000,
               })
             .then(() => console.log('Connected!'));
         } catch (error){

@@ -36,7 +36,7 @@ async function Product(props) {
 
   const product = await GetProduct()
 
- 
+  console.log(product)
 
  
 
@@ -76,9 +76,6 @@ async function Product(props) {
         </div>
       </div>
       <AddInfo productId={props.params.productId} />
-      
-      
-      
       <RelatedProducts /> 
     </MainContainer>
   );

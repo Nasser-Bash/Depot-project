@@ -7,7 +7,7 @@ export default async function Productsdetail(req, res) {
   try{
     
       await dbConnect()
-      const product = await Product.findOne({ _id: productId })
+      const product = await Product.findOne({ id: productId })
       if (req.method === 'GET') {
         res.status(200).json(product)
       } else {
