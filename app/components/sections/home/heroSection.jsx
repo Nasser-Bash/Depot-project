@@ -38,6 +38,7 @@ function HeroSection() {
    
     pagination={{
       clickable: true,
+    
       renderBullet: renderCustomBullet,
     }}
     modules={[ Autoplay ,Pagination ]}

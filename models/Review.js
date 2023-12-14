@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const productReview = new mongoose.Schema({
     productId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Number,
         ref: 'Product',
       },
     name: String,

@@ -25,6 +25,7 @@ function SplitShowcase() {
     speed={1000}
     pagination={{
         clickable: true,
+        dynamicBullets: true,
         renderBullet: (index, className) => {
           
           return (` 

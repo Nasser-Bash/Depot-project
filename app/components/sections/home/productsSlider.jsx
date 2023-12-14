@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+
 import ProductCard2 from "../../widgets/productCard2";
 function ProductsSlider({ products }) {
   const sliderRef = useRef(null);

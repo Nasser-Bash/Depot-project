@@ -32,10 +32,10 @@ function AddInfo({ productId }) {
     }
   };
 
-  useEffect(() => {
-    GetProductReview();
+  // useEffect(() => {
+  //   GetProductReview();
    
-  }, []);
+  // }, []);
 
   const [review, setreview] = useState({
     productId:productId,
@@ -54,13 +54,21 @@ function AddInfo({ productId }) {
 
   //post review to api
   const handleReview = async () => {
-    await axios
-      .post(
-        `https://depot-project.vercel.app/api/product/review/${productId}`,
-        review
-      )
-      .then((response) => {console.log(response);});
-      await GetProductReview();
+    fetch(`https://depot-project.vercel.app/api/product/review/${productId}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(review),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+      // await GetProductReview();
     
   };
 
@@ -164,7 +172,7 @@ function AddInfo({ productId }) {
           {Allreviews.map((review) => {
             return (
               <Zoom>
-                <div className="flex gap-5 mb-8">
+                <div className="flex gap-5 mb-8" key={review._id}>
                   <img
                     className=" object-cover w-[80px] h-[80px]  "
                     src="/images/user.png"
@@ -210,9 +218,9 @@ function AddInfo({ productId }) {
               <div className="py-8 lg:py-16  md:w-1/2 w-full">
                 <div className="space-y-8">
                   <div>
-                    <div class="sm:col-span-2 mb-5">
+                    <div className="sm:col-span-2 mb-5">
                       <label
-                        for="message"
+                        htmlFor="message"
                         className="block mb-2 text-sm font-medium ttext-black"
                       >
                         Your review *
@@ -227,7 +235,7 @@ function AddInfo({ productId }) {
                     </div>
 
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="block mb-2 text-sm font-medium text-black "
                     >
                       Your Email
@@ -243,7 +251,7 @@ function AddInfo({ productId }) {
                   </div>
                   <div>
                     <label
-                      for="Name"
+                      htmlFor="Name"
                       className="block mb-2 text-sm font-medium text-black"
                     >
                       Nane
